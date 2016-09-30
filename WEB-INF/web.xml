@@ -6,6 +6,13 @@
 	http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
     
    	<display-name>favspringmvcRestful</display-name>
+   	
+   	<!-- Spring和mybatis的配置文件 -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath:spring-mybatis.xml</param-value>
+	</context-param>
+   	
     <!-- 统一编码 -->
 	<filter> 
 	    <filter-name>encodingFilter</filter-name>
@@ -24,10 +31,15 @@
 	    <url-pattern>/*</url-pattern>
 	</filter-mapping>
 
-	<!-- <listener>
-	    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>  
-	</listener> -->
-	
+	<!-- Spring监听器 -->
+	<listener>
+	  <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<!-- 防止Spring内存溢出监听器 -->
+	<listener>
+	  <listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
+	</listener>
+
 	<!--前端控制器 -->
 	<servlet>
 		<servlet-name>springmvc</servlet-name>
