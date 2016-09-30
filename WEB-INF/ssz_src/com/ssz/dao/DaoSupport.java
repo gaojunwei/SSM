@@ -8,8 +8,8 @@ import org.springframework.stereotype.Repository;
 @Repository("daoSupport")
 public class DaoSupport implements DAO {
 
-	@Resource(name = "sqlSessionFactory")
-	private SqlSessionTemplate sqlSessionTemplate;
+	@Resource
+	private SqlSessionTemplate sqlSessionFactory;
 	
 	/**
 	 * 查找对象
@@ -19,7 +19,7 @@ public class DaoSupport implements DAO {
 	 * @throws Exception
 	 */
 	public Object findForObject(String str, Object obj) throws Exception {
-		return sqlSessionTemplate.selectOne(str, obj);
+		return sqlSessionFactory.selectOne(str, obj);
 	}
 }
 
