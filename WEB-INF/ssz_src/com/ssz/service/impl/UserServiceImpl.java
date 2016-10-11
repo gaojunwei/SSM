@@ -17,6 +17,6 @@ public class UserServiceImpl implements IUserService {
 	
 	@SuppressWarnings("unchecked")
 	public Map<String, Object> getUserByCon(Map<String, Object> map) throws Exception {
-		return (Map<String, Object>)this.dao.findForObject("test.findUserById", map);
+		return (Map<String, Object>)this.dao.findForObject("test.findUserByCon", map);
 	}
 }

@@ -11,7 +11,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		resultType：表示单条记录映射成的java对象；
 		parameterType输入条件的类型；
 	-->
-	<select id="findUserById" parameterType="java.util.Map" resultType="java.util.Map" >
+	<select id="findUserByCon" parameterType="java.util.Map" resultType="java.util.Map" >
 		select * from xd_user where 1=1 ${con}
 	</select>
 	<!-- 获取表的主键 -->
