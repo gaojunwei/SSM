@@ -3,6 +3,7 @@
 	<classpathentry kind="src" path="WEB-INF/ssz_source"/>
 	<classpathentry kind="src" path="WEB-INF/ssz_src"/>
 	<classpathentry kind="src" path="WEB-INF/ssz_mapping"/>
+	<classpathentry kind="src" path="WEB-INF/ssz_test"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
 	<classpathentry kind="lib" path="WEB-INF/lib/commons-codec-1.4.jar"/>
 	<classpathentry kind="lib" path="WEB-INF/lib/commons-dbcp-1.2.2.jar"/>
