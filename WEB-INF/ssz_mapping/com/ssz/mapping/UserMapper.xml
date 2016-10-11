@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="test">
+<mapper namespace="com.ssz.dao.IUserDao" >
 	<!--
 		根据用户ID查询用户信息，只返回一条。
 		#{}表示一个占位符号;
@@ -11,7 +11,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		resultType：表示单条记录映射成的java对象；
 		parameterType输入条件的类型；
 	-->
-	<select id="findUserByCon" parameterType="java.util.Map" resultType="java.util.Map" >
+	<select id="findUserByCon" parameterType="java.lang.String" resultType="java.util.Map" >
 		select * from xd_user where 1=1 ${con}
 	</select>
 	<!-- 获取表的主键 -->

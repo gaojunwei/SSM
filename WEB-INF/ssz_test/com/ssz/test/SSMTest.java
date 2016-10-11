@@ -19,8 +19,7 @@ public class SSMTest {
 	@Test
 	public void test1() throws Exception {
 		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("con", " and id=28896 ");
-		map = userService.getUserByCon(map);
+		map = userService.getUserByCon(" and id=28896 ");
 		System.out.println(map);
 	}
 }

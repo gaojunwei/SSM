@@ -39,9 +39,8 @@ public class TestAction {
 	@RequestMapping(value="/login",method=RequestMethod.GET)
 	public ModelAndView login(String userName,String userPwd) throws Exception
 	{
-		Map<String, Object> pMap = new HashMap<String, Object>();
-		pMap.put("con", " and cu_loginid='"+userName+"'");
-		Map<String, Object> rMap = this.userService.getUserByCon(pMap);
+		String strCon = " and cu_loginid='"+userName+"'";
+		Map<String, Object> rMap = this.userService.getUserByCon(strCon);
 		
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("msg", rMap!=null?rMap:"查询不到数据");
