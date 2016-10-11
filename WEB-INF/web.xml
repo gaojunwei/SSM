@@ -64,4 +64,7 @@
 	   <error-code>500</error-code>
 	   <location>/WEB-INF/error500.jsp</location>
 	</error-page>
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
 </web-app>
