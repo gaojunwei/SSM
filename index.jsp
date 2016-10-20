@@ -18,6 +18,7 @@
 	<ul>
 		<li>欢迎进入SSM整合框架默认首页</li>
 		<li><a href="up_file.jsp">文件上传</a></li>
+		<li><a href="getJsonData.jsp">获取JSON数据</a></li>
 	</ul>
 	
 	
