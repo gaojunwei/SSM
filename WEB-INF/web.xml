@@ -40,6 +40,16 @@
 	  <listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
 	</listener>
 
+	<servlet>
+        <servlet-name>CXFService</servlet-name>
+        <servlet-class>org.apache.cxf.transport.servlet.CXFServlet</servlet-class>
+         <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CXFService</servlet-name>
+        <url-pattern>/webservice/*</url-pattern>
+    </servlet-mapping>
+
 	<!--前端控制器 -->
 	<servlet>
 		<servlet-name>springmvc</servlet-name>
