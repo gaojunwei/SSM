@@ -42,7 +42,6 @@
 	<classpathentry kind="lib" path="WEB-INF/lib/aopalliance-1.0.jar"/>
 	<classpathentry kind="lib" path="WEB-INF/lib/asm-5.0.4.jar"/>
 	<classpathentry kind="lib" path="WEB-INF/lib/bcprov-jdk15on-1.55.jar"/>
-	<classpathentry kind="lib" path="WEB-INF/lib/commons-codec-1.10.jar"/>
 	<classpathentry kind="lib" path="WEB-INF/lib/commons-collections-3.2.2.jar"/>
 	<classpathentry kind="lib" path="WEB-INF/lib/commons-lang-2.6.jar"/>
 	<classpathentry kind="lib" path="WEB-INF/lib/cryptacular-1.0.jar"/>

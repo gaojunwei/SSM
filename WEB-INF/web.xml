@@ -44,7 +44,7 @@
 	  <listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
 	</listener>
 
-	<!--前端控制器 -->
+	<!--spring mvc前端控制器 -->
 	<servlet>
 		<servlet-name>springmvc</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -59,6 +59,23 @@
 		<servlet-name>springmvc</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
+	
+	<!--配置apche cxf Servlet  -->
+  	<!-- 配置cxf的核心控制器 -->      
+    <servlet> 
+        <servlet-name>CXFServlet</servlet-name> 
+        <servlet-class> 
+            org.apache.cxf.transport.servlet.CXFServlet  
+        </servlet-class> 
+        <load-on-startup>2</load-on-startup> 
+    </servlet> 
+ 
+   	<!-- 所有来自/webservice/*的请求交给cxf处理 --> 
+    <servlet-mapping> 
+        <servlet-name>CXFServlet</servlet-name> 
+        <url-pattern>/webservice/*</url-pattern>    
+    </servlet-mapping>
+	
 	
 	<error-page>
 	   <error-code>404</error-code>
