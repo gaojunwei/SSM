@@ -22,6 +22,9 @@
     <context:component-scan base-package="com.ssz.controller" >
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
+    <context:component-scan base-package="com.ssz.service" >
+        <context:include-filter type="annotation" expression="org.springframework.beans.factory.annotation.Autowired"/>
+    </context:component-scan>
 
 	<!--避免IE执行AJAX时，返回JSON出现下载文件 -->
 	<bean id="mappingJacksonHttpMessageConverter"
@@ -70,12 +73,5 @@
 		<!-- 内存中的最大值 -->
 		<property name="maxInMemorySize" value="40960" />  
 	</bean>
-	
-	<!-- cxf3以后，只需要引入这个配置文件即可，其他两个废弃掉了-->
-	<import resource="classpath:META-INF/cxf/cxf.xml"/>
-	<jaxws:endpoint id="sayHello"
-		implementor="com.kingkong.webservice.service.impl.SayHelloImpl"
-		address="/sayhello">
-	</jaxws:endpoint>
 	
 </beans>
