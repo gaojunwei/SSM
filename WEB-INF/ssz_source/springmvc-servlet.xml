@@ -22,9 +22,6 @@
     <context:component-scan base-package="com.ssz.controller" >
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
-    <context:component-scan base-package="com.ssz.service" >
-        <context:include-filter type="annotation" expression="org.springframework.beans.factory.annotation.Autowired"/>
-    </context:component-scan>
 
 	<!--避免IE执行AJAX时，返回JSON出现下载文件 -->
 	<bean id="mappingJacksonHttpMessageConverter"

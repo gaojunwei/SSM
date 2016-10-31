@@ -2,14 +2,10 @@ package com.ssz.test;
 
 import java.util.Map;
 
-import javax.annotation.Resource;
-
 import org.apache.log4j.Logger;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -21,7 +17,7 @@ import com.ssz.service.IUserService;
 
 public class TestMyBatis {
 	private static Logger logger = Logger.getLogger(TestMyBatis.class);
-	@Resource
+	@Autowired
 	private IUserService userService = null;
 
 	/*private ApplicationContext ac = null;
