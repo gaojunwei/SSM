@@ -3,11 +3,9 @@ package com.ssz.controller;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.Map;
 
-import javax.annotation.Resource;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,7 +21,7 @@ import com.ssz.service.IUserService;
 @RequestMapping(path="/web")
 public class TestAction {
 	
-	@Resource(name="userService")
+	@Autowired
 	private IUserService userService;
 	
 	@RequestMapping(path="/world",method=RequestMethod.GET)

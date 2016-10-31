@@ -5,6 +5,7 @@
     xmlns:context="http://www.springframework.org/schema/context" 
     xmlns:mvc="http://www.springframework.org/schema/mvc" 
     xmlns:task="http://www.springframework.org/schema/task"
+    xmlns:jaxws="http://cxf.apache.org/jaxws"
     xsi:schemaLocation="
         http://www.springframework.org/schema/beans 
         http://www.springframework.org/schema/beans/spring-beans-4.2.xsd 
@@ -13,7 +14,9 @@
         http://www.springframework.org/schema/mvc 
         http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd 
         http://www.springframework.org/schema/task 
-        http://www.springframework.org/schema/task/spring-task-4.2.xsd">
+        http://www.springframework.org/schema/task/spring-task-4.2.xsd
+        http://cxf.apache.org/jaxws 
+        http://cxf.apache.org/schemas/jaxws.xsd">
 
     <!-- 自动扫描该包，使SpringMVC认为包下用了@controller注解的类是控制器 -->
     <context:component-scan base-package="com.ssz.controller" >
@@ -67,4 +70,5 @@
 		<!-- 内存中的最大值 -->
 		<property name="maxInMemorySize" value="40960" />  
 	</bean>
+	
 </beans>

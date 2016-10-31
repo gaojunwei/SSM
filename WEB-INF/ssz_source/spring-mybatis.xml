@@ -10,8 +10,10 @@
   http://www.springframework.org/schema/context/spring-context-4.2.xsd  
   http://www.springframework.org/schema/mvc  
   http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
-	<!-- 自动扫描 -->
-	<context:component-scan base-package="com.ssz" />
+
+	<context:component-scan base-package="com.ssz.service" >
+        <context:include-filter type="annotation" expression="org.springframework.beans.factory.annotation.Autowired"/>
+    </context:component-scan>
 	<!-- 引入配置文件 -->
 	<bean id="propertyConfigurer"
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
@@ -39,8 +41,7 @@
 	<!-- spring和MyBatis完美整合，不需要mybatis的配置映射文件 -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
-		
-		<!-- <property name="configLocation" value="classpath:mybatis/mybatis-config.xml"></property> -->
+		<property name="configLocation" value="classpath:mybatis/mybatis-config.xml"></property>
 		<!-- 自动扫描mapping.xml文件 -->
 		<property name="mapperLocations" value="classpath:com/ssz/mapping/*.xml"></property>
 	</bean>
@@ -56,4 +57,7 @@
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
+	
+	<!--ssm 集成 apache cxf(webservice)  -->
+    <import resource="classpath:webservice/apache-cxf.xml"/>
 </beans>
