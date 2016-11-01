@@ -11,8 +11,8 @@
   http://www.springframework.org/schema/mvc  
   http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
 
-	<context:component-scan base-package="com.ssz.service" >
-        <context:include-filter type="annotation" expression="org.springframework.beans.factory.annotation.Autowired"/>
+	<context:component-scan base-package="com.ssz.service.*" annotation-config="false">
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Service"/>
     </context:component-scan>
 	<!-- 引入配置文件 -->
 	<bean id="propertyConfigurer"
