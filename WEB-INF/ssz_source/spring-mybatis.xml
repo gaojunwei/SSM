@@ -60,4 +60,6 @@
 	
 	<!--ssm 集成 apache cxf(webservice)  -->
     <import resource="classpath:webservice/apache-cxf.xml"/>
+	<!--ssm 集成quartz(定时任务框架)  -->
+    <import resource="classpath:webservice/spring-quartz.xml"/>
 </beans>

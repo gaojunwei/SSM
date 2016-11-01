@@ -20,13 +20,6 @@ public class TestMyBatis {
 	@Autowired
 	private IUserService userService = null;
 
-	/*private ApplicationContext ac = null;
-	@Before
-	public void before() {
-		ac = new ClassPathXmlApplicationContext("spring-mybatis.xml");
-		userService = (IUserService) ac.getBean("userService");
-	}*/
-
 	@Test
 	public void test1() throws Exception {
 		Map<String, Object> rMap = userService.getUserByCon(" and cu_loginid='dongcunrui89'");
