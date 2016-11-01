@@ -61,5 +61,8 @@
 	<!--ssm 集成 apache cxf(webservice)  -->
     <import resource="classpath:webservice/apache-cxf.xml"/>
 	<!--ssm 集成quartz(定时任务框架)  -->
-    <import resource="classpath:webservice/spring-quartz.xml"/>
+	<!-- 当你只需要去执行“一个方法”在“一个特定的对象”，使用如下配置 -->
+    <!-- <import resource="classpath:webservice/spring-simple-quartz.xml"/> -->
+	<!-- 当你只需要去执行更复杂的处理时，,把数据传递给预定的任务 -->
+	<import resource="classpath:webservice/spring-complex-quartz.xml"/>
 </beans>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    	http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+ 
+    <context:component-scan base-package="com.ssz.qtz.complex.*" />
+ 
+    <!-- For times when you need more complex processing, passing data to the scheduled job -->
+    <!-- 当你只需要去执行更复杂的处理时，,把数据传递给预定的任务 -->
+    <bean name="firstComplexJobDetail" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">  
+        <property name="jobClass" value="com.ssz.qtz.complex.task.FirstScheduledJob" />
+        <property name="jobDataMap">
+            <map>
+                <entry key="anotherBean" value-ref="anotherBean" />
+            </map>
+        </property>
+        <property name="durability" value="true" />
+    </bean>
+    
+    <!-- Run the job every 5 seconds -->
+    <!-- 每5秒执行一次job -->
+    <bean id="cronTrigger"  class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">  
+        <property name="jobDetail" ref="firstComplexJobDetail" />  
+        <!--<property name="cronExpression" value="0/5 * * ? * SAT-SUN" />-->  
+        <property name="cronExpression" value="0/5 * * ? * *" />  
+          
+    </bean>
+ 	<!-- Scheduler factory bean to glue together jobDetails and triggers to Configure Quartz Scheduler -->
+    <bean  class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="triggers">
+            <list>
+                <ref bean="cronTrigger" />
+            </list>
+        </property>
+    </bean>
+</beans>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    	http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+ 
+    <context:component-scan base-package="com.ssz.qtz.simple.task" />
+ 
+    <!-- For times when you just need to invoke a method on a specific object -->
+    <!-- 当你只需要去执行“一个方法”在“一个特定的对象”，使用如下配置 -->
+    <bean id="simpleJobDetailA" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="taskA" />
+        <property name="targetMethod" value="todoTaskA" />
+    </bean>
+    <bean id="simpleJobDetailB" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="taskB" />
+        <property name="targetMethod" value="todoTaskB" />
+    </bean>
+ 	<!-- Run the job every 2 seconds with initial delay of 1 second -->
+ 	<!-- 延迟1秒执行，运行间隔为2秒，运行job任务 -->
+    <bean id="simpleTriggerA"  class="org.springframework.scheduling.quartz.SimpleTriggerFactoryBean">
+        <property name="jobDetail" ref="simpleJobDetailA" />
+        <property name="startDelay" value="1000" /><!-- 延迟启动时间 -->
+        <property name="repeatInterval" value="2000" /><!-- 重复的时间间隔 -->
+    </bean>
+    <bean id="simpleTriggerB"  class="org.springframework.scheduling.quartz.SimpleTriggerFactoryBean">
+        <property name="jobDetail" ref="simpleJobDetailB" />
+        <property name="startDelay" value="1000" /><!-- 延迟启动时间 -->
+        <property name="repeatInterval" value="5000" /><!-- 重复的时间间隔 -->
+    </bean>
+ 	<!-- Scheduler factory bean to glue together jobDetails and triggers to Configure Quartz Scheduler -->
+    <bean  class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="jobDetails">
+            <list>
+                <ref bean="simpleJobDetailA" />
+                <ref bean="simpleJobDetailB" />
+            </list>
+        </property>
+        <property name="triggers">
+            <list>
+                <ref bean="simpleTriggerA" />
+                <ref bean="simpleTriggerB" />
+            </list>
+        </property>
+    </bean>
+</beans>

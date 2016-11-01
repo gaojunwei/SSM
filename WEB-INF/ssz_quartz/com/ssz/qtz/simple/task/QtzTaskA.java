@@ -1,4 +1,4 @@
-package com.ssz.qtz.task;
+package com.ssz.qtz.simple.task;
 
 import org.springframework.stereotype.Component;
 
@@ -6,10 +6,10 @@ import org.springframework.stereotype.Component;
  * 功能描述：定时任务A
  * @author：gjw
  */
-@Component("myBean")
+@Component("taskA")
 public class QtzTaskA {
 	private static int counter = 0;
-	protected void todoTask() {
+	protected void todoTaskA() {
 		System.out.println("任务A："+(++counter));
 	}
 }
