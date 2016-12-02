@@ -23,6 +23,7 @@
 			data: "userName=dongcunrui89",
 			dataType : 'json',
 			success : function(data) {
+				console.log("接口返回数据："+data);
 				alert(data.T_NAME);
 				console.log("toString()=>"+data.toString());
 				console.log("valueOf()=>"+data.valueOf());
