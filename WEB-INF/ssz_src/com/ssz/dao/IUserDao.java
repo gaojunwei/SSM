@@ -15,4 +15,8 @@ public interface IUserDao {
 	 * */
 	/*通过条件获得用户信息*/
     Map<String, Object> findUserByCon(@Param("con")String con);
+    
+    int updateSSZUser(Map map);
+    
+    int insertUserAccount(Map map);
 }

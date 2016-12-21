@@ -1,5 +1,6 @@
 package com.ssz.test;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.log4j.Logger;
@@ -8,6 +9,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.alibaba.fastjson.JSON;
 import com.ssz.service.IUserService;
@@ -22,9 +24,14 @@ public class TestMyBatis {
 
 	@Test
 	public void test1() throws Exception {
-		Map<String, Object> rMap = userService.getUserByCon(" and cu_loginid='dongcunrui89'");
-		// System.out.println(user.getUserName());
-		// logger.info("值："+user.getUserName());
-		logger.info(JSON.toJSONString(rMap));
+		getUserByCons();
 	}
+	
+	
+	/*修改用户信息，及插入账户信息*/
+	@Transactional
+	public void getUserByCons() throws Exception {
+		userService.getUserByCons();
+	}
+	
 }
