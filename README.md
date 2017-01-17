@@ -21,8 +21,9 @@ Quartz是OpenSymphony开源组织在Job scheduling领域又一个开源项目，
 #目前已经添加的功能
 1、文件上传；<br/>
 2、数据库的增删改查、及数据库存储过程调用；<br/>
-3、添加 CXF 发布 webservice ，使用版本：cxf-core-3.1.8.jar；<br/>
-4、添加 Quartz执行定时job ，使用版本：quartz-2.2.3.jar；<br/>
+3、事物管理；<br/>
+4、添加 CXF 发布 webservice ，使用版本：cxf-core-3.1.8.jar；<br/>
+5、添加 Quartz执行定时job ，使用版本：quartz-2.2.3.jar；<br/>
 
 
 
