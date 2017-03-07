@@ -3,8 +3,6 @@
 	<classpathentry kind="src" path="WEB-INF/ssz_source"/>
 	<classpathentry kind="src" path="WEB-INF/ssz_src"/>
 	<classpathentry kind="src" path="WEB-INF/ssz_mapping"/>
-	<classpathentry kind="src" path="WEB-INF/ssz_webservice"/>
-	<classpathentry kind="src" path="WEB-INF/ssz_quartz"/>
 	<classpathentry kind="src" path="WEB-INF/ssz_test"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
@@ -95,6 +93,10 @@
 	<classpathentry kind="lib" path="WEB-INF/lib/quartz-2.2.3.jar"/>
 	<classpathentry kind="lib" path="WEB-INF/lib/quartz-jobs-2.2.3.jar"/>
 	<classpathentry kind="lib" path="WEB-INF/lib/mysql-connector-java-5.1.30-bin.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/aopalliance.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/aspectjrt.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/aspectjweaver.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/cglib-3.2.5.jar"/>
 	<classpathentry kind="var" path="TOMCAT_HOME/lib/servlet-api.jar"/>
 	<classpathentry kind="var" path="TOMCAT_HOME/lib/jasper.jar"/>
 	<classpathentry kind="var" path="TOMCAT_HOME/lib/jsp-api.jar"/>

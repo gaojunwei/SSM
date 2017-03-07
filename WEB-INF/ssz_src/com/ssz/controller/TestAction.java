@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.ssz.service.AService;
+import com.ssz.service.BService;
 import com.ssz.service.IUserService;
 
 @Controller
@@ -23,6 +25,10 @@ public class TestAction {
 	
 	@Autowired
 	private IUserService userService;
+	@Autowired
+	private AService aService;
+	@Autowired
+	private BService bService;
 	
 	@RequestMapping(path="/world",method=RequestMethod.GET)
 	public String hello(Model model)
@@ -131,8 +137,19 @@ public class TestAction {
 	@RequestMapping(path="/getjson",produces="application/json;charset=UTF-8")
 	public Map<String,Object> getJson(String userName) throws Exception
 	{
-		String strCon = " and cu_loginid='"+userName+"'";
+		if(userName==null || userName.equals(""))
+			userName = "dongcunrui89";
+		
+		String strCon = userName;
 		Map<String, Object> rMap = this.userService.getUserByCon(strCon);
+		
+		aService.barA();
+		aService.fooA("aService.fooA");
+		
+		bService.barB("bService.barB", 1);
+		bService.equals("bService.fooB");
+		
+		
 		return rMap;
 	}
 }

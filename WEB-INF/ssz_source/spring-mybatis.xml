@@ -5,6 +5,7 @@
   xmlns:context="http://www.springframework.org/schema/context"
   xmlns:mvc="http://www.springframework.org/schema/mvc"
   xmlns:tx="http://www.springframework.org/schema/tx"
+  xmlns:aop="http://www.springframework.org/schema/aop"
   
   xsi:schemaLocation="http://www.springframework.org/schema/beans
   http://www.springframework.org/schema/beans/spring-beans-4.2.xsd  
@@ -13,7 +14,9 @@
   http://www.springframework.org/schema/tx 
   http://www.springframework.org/schema/tx/spring-tx-4.2.xsd 
   http://www.springframework.org/schema/mvc  
-  http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
+  http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd
+  http://www.springframework.org/schema/aop
+  http://www.springframework.org/schema/aop/spring-aop-4.2.xsd">
 
 	<context:component-scan base-package="com.ssz.service.*" annotation-config="false">
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Service"/>
@@ -79,11 +82,18 @@
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 	
-	<!--ssm 集成 apache cxf(webservice)  -->
-    <!--<import resource="classpath:webservice/apache-cxf.xml"/>-->
-	<!--ssm 集成quartz(定时任务框架)  -->
-	<!-- 当你只需要去执行“一个方法”在“一个特定的对象”，使用如下配置 -->
-    <!-- <import resource="classpath:webservice/spring-simple-quartz.xml"/> -->
-	<!-- 当你只需要去执行更复杂的处理时，,把数据传递给预定的任务 -->
-	<!--<import resource="classpath:webservice/spring-complex-quartz.xml"/>-->
+	<aop:config>  
+        <aop:aspect id="TestAspect" ref="aspectBean">  
+            <!--配置com.ssz.service包下所有类或接口的所有方法-->  
+            <aop:pointcut id="businessService" expression="execution(* com.ssz.service.*.*(..))" />  
+            <aop:before pointcut-ref="businessService" method="doBefore"/>  
+            <aop:after pointcut-ref="businessService" method="doAfter"/>  
+            <aop:around pointcut-ref="businessService" method="doAround"/>  
+            <aop:after-throwing pointcut-ref="businessService" method="doThrowing" throwing="ex"/>  
+        </aop:aspect>  
+    </aop:config>
+   <bean id="aspectBean" class="com.ssz.spring.aop.TestAspect" />
+   <!--  <bean id="aService" class="com.spring.service.AServiceImpl"></bean>  
+    <bean id="bService" class="com.spring.service.BServiceImpl"></bean>  -->
+	
 </beans>

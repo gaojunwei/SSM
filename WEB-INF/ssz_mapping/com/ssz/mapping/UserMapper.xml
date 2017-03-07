@@ -32,7 +32,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</trim>
 	</insert>
 	<select id="findUserByCon" parameterType="java.lang.String" resultType="java.util.Map" >
-		select * from xd_user where 1=1 ${con}
+		select * from xd_user where cu_loginid=#{con}
 	</select>
 	
 </mapper>
